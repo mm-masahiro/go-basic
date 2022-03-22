@@ -20,8 +20,14 @@ func calculate(x, y int) {
 
 func main() {
 	// go f("gorutine使って実行")
-	go calculate(3, 4)
-	f("普通に実行")
-	time.Sleep(3 * time.Second)
-	fmt.Println("done")
+	// go calculate(3, 4)
+	// f("普通に実行")
+	// time.Sleep(3 * time.Second)
+	// fmt.Println("done")
+
+	messages := make(chan string)
+	go func() { messages <- "Hello" }()
+
+	msg := <-messages
+	fmt.Println(msg)
 }
