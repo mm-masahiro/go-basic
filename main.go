@@ -1,0 +1,27 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func f(value string) {
+	for i := 0; i < 3; i++ {
+		fmt.Println(value)
+		// time.Sleep(3 * time.Second)
+	}
+}
+
+func calculate(x, y int) {
+	sum := x + y
+	fmt.Println(sum)
+	time.Sleep(3 * time.Second)
+}
+
+func main() {
+	// go f("gorutine使って実行")
+	go calculate(3, 4)
+	f("普通に実行")
+	time.Sleep(3 * time.Second)
+	fmt.Println("done")
+}
