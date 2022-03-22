@@ -31,6 +31,7 @@ func main() {
 	msg := <-messages
 	fmt.Println(msg)
 
+	// 第二引数でサイズを指定できる
 	ch := make(chan int, 3)
 	ch <- 1
 	ch <- 2
