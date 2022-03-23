@@ -43,4 +43,5 @@ func main() {
 	// fmt.Println(<-ch)
 
 	chanPra.ChanTest()
+	chanPra.ChanTest2()
 }

@@ -11,3 +11,13 @@ func ChanTest() {
 
 	fmt.Println(msg)
 }
+
+func ChanTest2() {
+	numbers := make(chan int)
+
+	go func() { numbers <- 3 }()
+
+	num := <-numbers
+
+	fmt.Println(num)
+}
