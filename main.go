@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"go-basic/chanPra"
+	"go-basic/directions"
 	"time"
 )
 
@@ -44,4 +45,11 @@ func main() {
 
 	chanPra.ChanTest()
 	chanPra.ChanTest2()
+
+	pings := make(chan string, 1)
+	pongs := make(chan string, 1)
+
+	directions.ReceivePing(pings, "Hello")
+	directions.SendPing(pings, pongs)
+	fmt.Println(<-pongs)
 }
