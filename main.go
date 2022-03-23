@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"go-basic/chanPra"
 	"time"
 )
 
@@ -37,7 +38,9 @@ func main() {
 	ch <- 2
 	ch <- 3
 
-	fmt.Println(<-ch)
-	fmt.Println(<-ch)
-	fmt.Println(<-ch)
+	// fmt.Println(<-ch)
+	// fmt.Println(<-ch)
+	// fmt.Println(<-ch)
+
+	chanPra.ChanTest()
 }

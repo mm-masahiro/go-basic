@@ -1,3 +1,3 @@
-module main.go
+module go-basic
 
 go 1.15
