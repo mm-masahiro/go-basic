@@ -2,10 +2,16 @@ package main
 
 import (
 	"fmt"
-	"go-basic/chanPra"
-	"go-basic/directions"
 	"time"
 )
+
+type Number struct {
+	num int
+}
+
+func (n Number) Add(i int) int {
+	return n.num + i
+}
 
 func f(value string) {
 	for i := 0; i < 3; i++ {
@@ -27,29 +33,39 @@ func main() {
 	// time.Sleep(3 * time.Second)
 	// fmt.Println("done")
 
-	messages := make(chan string)
-	go func() { messages <- "Hello" }()
+	n := Number{num: 5}
+	result := n.Add(5)
 
-	msg := <-messages
-	fmt.Println(msg)
+	const hoge = 10 / 2
+	foo := 20
+
+	fmt.Println(n.Add(hoge))
+	fmt.Println(n.Add(foo))
+	fmt.Println(result)
+
+	// messages := make(chan string)
+	// go func() { messages <- "Hello" }()
+
+	// msg := <-messages
+	// fmt.Println(msg)
 
 	// 第二引数でサイズを指定できる
-	ch := make(chan int, 3)
-	ch <- 1
-	ch <- 2
-	ch <- 3
+	// ch := make(chan int, 3)
+	// ch <- 1
+	// ch <- 2
+	// ch <- 3
 
 	// fmt.Println(<-ch)
 	// fmt.Println(<-ch)
 	// fmt.Println(<-ch)
 
-	chanPra.ChanTest()
-	chanPra.ChanTest2()
+	// chanPra.ChanTest()
+	// chanPra.ChanTest2()
 
-	pings := make(chan string, 1)
-	pongs := make(chan string, 1)
+	// pings := make(chan string, 1)
+	// pongs := make(chan string, 1)
 
-	directions.ReceivePing(pings, "Hello")
-	directions.SendPing(pings, pongs)
-	fmt.Println(<-pongs)
+	// directions.ReceivePing(pings, "Hello")
+	// directions.SendPing(pings, pongs)
+	// fmt.Println(<-pongs)
 }
